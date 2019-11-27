@@ -211,18 +211,27 @@
   _.contains = function(collection, target) {
     // TIP: Many iteration problems can be most easily expressed in
     // terms of reduce(). Here's a freebie to demonstrate!
-    return _.reduce(collection, function(wasFound, item) {
-      if (wasFound) {
-        return true;
+    if (Array.isArray(collection)) {
+      for (let i = 0; i < collection.length; i++) {
+        if (target === collection[i]) {
+          return true;
+        }
       }
-      return item === target;
-    }, false);
+    } else {
+      for (let key in collection) {
+        if (target === collection[key]) {
+          return true;
+        }
+      }
+    }
+    return false
   };
 
 
   // Determine whether all of the elements match a truth test.
   _.every = function(collection, iterator) {
     // TIP: Try re-using reduce() here.
+
 
   };
 
@@ -253,11 +262,13 @@
   //     bla: "even more stuff"
   //   }); // obj1 now contains key1, key2, key3 and bla
   _.extend = function(obj) {
+
   };
 
   // Like extend, but doesn't ever overwrite a key that already
   // exists in obj
   _.defaults = function(obj) {
+
   };
 
 
@@ -301,6 +312,7 @@
   // already computed the result for the given argument and return that value
   // instead if possible.
   _.memoize = function(func) {
+
   };
 
   // Delays a function for the given number of milliseconds, and then calls
@@ -310,6 +322,7 @@
   // parameter. For example _.delay(someFunction, 500, 'a', 'b') will
   // call someFunction('a', 'b') after 500ms
   _.delay = function(func, wait) {
+
   };
 
 
